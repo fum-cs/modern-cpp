@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About this Tutorial
-nav_order: 1
+nav_order: 2
 ---
 
 # About this Tutorial

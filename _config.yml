@@ -1,9 +1,14 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: Adv. Prog. (Modern C++)
+description: Modern C++ for Advanced Programming Course, FUM, CS Dept.
 theme: just-the-docs
 
 url: https://fum-cs.github.io/modern-cpp
-logo: "/assets/images/FUM-logo.jpg"
+
+# Set a path/url to a logo that will be displayed instead of the title
+logo: "/assets/images/logo-en.jpg"
+
+# Set a path/url to a favicon that will be displayed by the browser
+favicon_ico: "/assets/images/logo-small.ico"
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template

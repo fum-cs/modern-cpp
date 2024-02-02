@@ -1,4 +1,19 @@
-﻿# String and Character Literals
+﻿---
+layout: default
+title: String and Character Literals
+nav_order: 3
+---
+
+# String and Character Literals
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## Introducing a Modern C++ program
 
@@ -187,7 +202,7 @@ Learning when and how to comment code comes with experience; typically you shoul
 
 * Uncomment this line and use a pair of multi-line delimiters to comment-out the whole of the body of `main()`. Does this program compile and run?
 
-[^1]: https://fum-cs.github.io/moderncpp/2019/08/03/welcome/
+[^1]: https://fum-cs.github.io/modern-cpp/2019/08/03/welcome/
 [^2]: https://clang.llvm.org/docs/ClangFormat.html
 [^3]: http://site.icu-project.org/home
 [^4]: https://www.doxygen.nl/manual/docblocks.html

@@ -1,4 +1,20 @@
-﻿# Variables, Scopes and Namespaces
+﻿---
+layout: default
+title: Variables, Scopes and Namespaces
+nav_order: 4
+---
+
+# Variables, Scopes and Namespaces
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 
 ## Declarations, definitions and assignment
 
