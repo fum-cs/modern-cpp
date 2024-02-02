@@ -30,7 +30,6 @@ int main() {
 }
 ```
 
-
 If you prefer not to cut-and-paste, this source file is included in the zip archive linked from this site.[^1] Having seen what this program does (admittedly not that much), let's explore how it is put together:
 
 * The first line is a comment; syntax of comments are discussed in more detail later in this Chapter. I've chosen to repeat the filename of the source code file in the comment, and also to summarize the purpose of the program. This summary is intended to be useful to anybody who later reads the code, possibly including the original author!
@@ -213,6 +212,6 @@ Learning when and how to comment code comes with experience; typically you shoul
 [^3]: http://site.icu-project.org/home
 [^4]: https://www.doxygen.nl/manual/docblocks.html
 
-* * *
+---
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.
