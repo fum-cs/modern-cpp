@@ -1,6 +1,7 @@
 title: Adv. Prog. (Modern C++)
 description: Modern C++ for Advanced Programming Course, FUM, CS Dept.
 theme: just-the-docs
+author: M. Amintoosi
 
 url: https://fum-cs.github.io/modern-cpp
 
@@ -11,4 +12,7 @@ logo: "/assets/images/fum-cs-blue.png"
 favicon_ico: "/assets/images/logo-small.ico"
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Mahmood Amintoosi:
+    - 'https://mamintoosi.github.io'
+  Class Repository:
+    - 'https://github.com/fum-cs/modern-cpp'
