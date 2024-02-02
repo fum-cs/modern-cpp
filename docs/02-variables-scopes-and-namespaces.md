@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Variables, Scopes and Namespaces
 nav_order: 4

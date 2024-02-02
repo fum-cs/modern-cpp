@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: Conditions and Operators
 nav_order: 5

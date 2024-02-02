@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: String and Character Literals
 nav_order: 3
