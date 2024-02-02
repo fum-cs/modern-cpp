@@ -15,7 +15,6 @@ nav_order: 2
 
 ---
 
-
 ## Why (Modern) C++?
 
 C++ is a living programming language. What began as Bjarne Stroustrup's research project at Bell Labs in the late 1970s has grown into an ISO-Standardized language and library, with regular new releases co-ordinated by an ISO Committee. During that time countless over-hyped programming languages have appeared (and disappeared), whilst C++ has improved by continually "borrowing" new ideas from other contemporary or newer languages.
@@ -31,7 +30,7 @@ Of course, it is far easier to add features to a language than remove them (this
 I have been learning and using C++ since around 2002, and Modern C++ is the language I wish had been available to me back then; I believe it is an easier language to learn to use productively than older versions. Of course, there have been many books written about C++ over the years, but unavoidably most of these will be (badly) out-of-date. Even [Stroustrup's](https://stroustrup.com) "The C++ Programming Language" (Fourth Edition)[^1] only covers up to and including C++11.
 
 This online self-study course has been put together as a personal project designed to be accessible and comprehensible to anyone without any previous experience of programming in compiled languages; it is intended that all material is presented with suitable context and explanation. The format is a conversational-tone introduction to a topic followed by an example program (in many cases intended to be compiled and run, with all source code [available on GitHub](https://github.com/fum-cs/moderncpp/)[^2]). Then a list of points-of-interest follows the code, often followed by a number of possible modifications that you (the reader) are invited to make in order to cement your understanding. Each Chapter introduces several related topics, and the suggested [coding assignments](http://learnmoderncpp.com/coding-assignments/) have been created to increase your experience with the material presented.
- 
+
 Most people "learn by doing" (kinesthetic learning), and for decades it has been recognized that the only way to become proficient in a programming language is to write working (small- to medium-sized) programs in it. There are dozens (hundreds?) of C++ video tutorials available elsewhere on the Web, and if these are more suited to your learning style, then great! In my experience, written information is more likely to be taken in than spoken, both at first reading and in review. The course materials (this Tutorial) have been made freely available and are intended to be improved over time. Spelling, technical and other errors will be present, and I welcome feedback and suggestions for improvement; please leave a comment or drop me an email, thanks!
 
 ## Which compiler should I choose when learning C++?
@@ -52,12 +51,14 @@ The simple programs we will introduce and create will consist of just one source
 * **GCC**: `g++ -o 01-hellow -std=c++20 01-hellow.cpp`
 * **Clang**: `clang++ -o 01-hellow -std=c++20 -stdlib=libc++ 01-hellow.cpp`
 
-```
-Note on C++23: Different options are used with the different compilers, and when in C++23 using `import` (modules) instead of `#include` (headers). 
-```
+---
+**C++23 NOTE:**
+
+Different options are used with the different compilers, and when in C++23 using `import` (modules) instead of `#include` (headers).
+
+---
 
 In this course we will use the codes in [headers folder](https://github.com/fum-cs/modern-cpp/code/headers/).
-
 
 Successful compilation produces an *executable binary* called `01-hellow.exe` (under Windows) or `01-hellow` (MacOS or Linux). This can be run by typing `01-hellow.exe` (or just `01-hellow`) into a Windows console (see graphic above), or by typing `./01-hellow` into a MacOS or Linux Terminal (both assuming that the executable is located in the current directory). Running the program by double-clicking it in an Explorer or File Manager window is not recommended, as any output may be lost as the program exits, so your program may not actually appear to do anything!
 

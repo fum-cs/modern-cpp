@@ -35,13 +35,14 @@ If you prefer not to cut-and-paste, this source file is included in the zip arch
 
 * The first line is a comment; syntax of comments are discussed in more detail later in this Chapter. I've chosen to repeat the filename of the source code file in the comment, and also to summarize the purpose of the program. This summary is intended to be useful to anybody who later reads the code, possibly including the original author!
 
-* Then comes some *boilerplate* code, that is common code that we'll see again in future programs we write. The *include directive* is a command interpreted by the *pre-processor* which pastes the entire contents of the relevant *header file* (and any other files it `#include`s) at that point into the *compilation unit*. 
+* Then comes some *boilerplate* code, that is common code that we'll see again in future programs we write. The *include directive* is a command interpreted by the *pre-processor* which pastes the entire contents of the relevant *header file* (and any other files it `#include`s) at that point into the *compilation unit*.
 
-```
-Only in C++23:
+---
+**C++23 NOTE:**
 
 These directives are being phased out of Modern C++ in favor of the `import` keyword (which has the potential to speed up compilation times significantly), but it is likely the transition will take years to complete. Both Clang/LLVM and MSVC implement `import` although extra command-line switches are needed currently.
-```
+
+---
 
 * The next line `using namespace std;` is another directive which makes available all of the elements of the Standard Namespace (abbreviated as `std`) available to the global scope (that is, the scope in which the directive appears). Many experienced programmers would consider this *namespace pollution* bad form, preferring instead to use the *fully qualified names* of the individual components, however I have chosen to use it in all of the the example programs we will see in this Tutorial. The name "Standard" comes from the definition of the C++ Library's classes, functions and other facilities as defined by the ISO Standardization Committee. Programs can use any part of the Standard Library and be expected to compile on any compiler/platform combination without modification.
 
@@ -58,6 +59,7 @@ These directives are being phased out of Modern C++ in favor of the `import` key
 Maybe you've heard about C++ supporting *generics* through the `template` keyword? Even this simple program only works due to the use of *template instantiation*, which is in simple terms creating code to be compiled from the provided parameter(s). Hopefully, it soon becomes apparent that support for such capabilities can lead to easily comprehensible client code compared with leaner ("simpler") programming languages, such as C.
 
 **Experiment:**
+
 * Adapt the above program (perhaps calling the modified version `01-hellow2.cpp`) to print the new-line character from within the string literal, removing the character literal and the now unneeded second stream insertion operator from the code. Is the output identical?
 
 * Move the using-directive in the original program to within `main()`, and make sure the program still compiles. Does its position within `main()` matter?
@@ -165,9 +167,7 @@ Wide character support is platform-specific, and in particular the size of `wcha
 
 As well as the eight-bit type `char` there is now also `char8_t` which is useful for explicitly specifying that a string is UTF-8, and usefully can encode all UTF-8 code points when using `\u` and `\U`, unlike plain `char`. It also removes the uncertainty of whether `char` is signed or unsigned, which can cause programs to work differently on different platforms in some cases. Also available are `char16_t` and `char32_t` designed to be the correct size for holding a single UTF-16 or UTF-32 Unicode code point, respectively. Whilst these types are built into the language, converting strings between these types is a complex task and requires use of either the Standard Library, or third-party libraries (such as ICU[^3]), further discussion of which is beyond the scope of this Tutorial.
 
-
 The following table lists C++ types, sizes, target encodings, literals and objects used with normal and wide character sets:
-
 
 |   Type   |  Bits | Encoding | String Literal | Character Literal | Raw String Literal | String Type | Stream Output |
 |:--------:|:-----:|:--------:|:--------------:|:-----------------:|:------------------:|:-----------:|:-------------:|
@@ -176,7 +176,6 @@ The following table lists C++ types, sizes, target encodings, literals and objec
 | char16_t |   16  |  UTF-16  |     u"abcd"    |        u'a'       |     uR"(abcd)"     |  u16string  |      n/a      |
 | char32_t |   32  |  UTF-32  |     U"abcd"    |        U'a'       |     UR"(abcd)"     |  u32string  |      n/a      |
 |  wchar_t | 16/32 |   n/a +  |     L"abcd"    |        L'a'       |     LR"(abcd)"     |   wstring   |     wcout     |
-
 
 &#42; An explicit cast to type `char` in `operator<<` may be required when using `cout`/`cerr`, for example: `cout << static_cast<char>(u8"Hello \u20AC!\n");`.
 
