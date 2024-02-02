@@ -900,6 +900,6 @@ This is one of the larger programs we have seen, and covers much of the contents
 
 * Change `Pupil` and `Class` to be `class`es instead of `struct`s, with `private:` data members. Hint: you will need to write some `public:` getters.
 
-*All text and program code &copy;2024-2025 Mahmood Amintoosi, all rights reserved.*
+
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

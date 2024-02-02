@@ -578,6 +578,6 @@ int main() {
 
 * Remove the `noexcept` keyword. Does the program compile? What is the output when run?
 
-*All text and program code &copy;2024-2025 Mahmood Amintoosi, all rights reserved.*
+
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

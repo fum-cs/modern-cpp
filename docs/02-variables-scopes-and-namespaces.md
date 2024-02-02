@@ -504,6 +504,6 @@ int main() {
 
 As can be seen from attempting to compile and run this program, both `PI1` and `PI2` have exactly the same value and are both constant, but the first `static_assert()` always fails because it can't evaluate at run-time, so compilation halts. In general, a program that fails to compile is preferable to one that runs incorrectly, so `static_assert()` is a useful tool to have. It also adds no *overhead* cost at run-time. The `static_assert()` test can optionally take a second string literal parameter, this being the error message for the compiler to output if the assertion fails.
 
-*All text and program code &copy;2024-2025 Mahmood Amintoosi, all rights reserved.*
+
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.
