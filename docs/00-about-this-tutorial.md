@@ -52,12 +52,12 @@ The simple programs we will introduce and create will consist of just one source
 * **GCC**: `g++ -o 01-hellow -std=c++20 01-hellow.cpp`
 * **Clang**: `clang++ -o 01-hellow -std=c++20 -stdlib=libc++ 01-hellow.cpp`
 
-Note: Different options are used with the different compilers, and when using `import` (modules) instead of `#include` (headers). 
-In this course we will use the codes in [headers folder](https://github.com/fum-cs/moderncpp/headers/).
+```
+Note on C++23: Different options are used with the different compilers, and when in C++23 using `import` (modules) instead of `#include` (headers). 
+```
 
- <!-- The graphic below outlines the steps for compiling the modules version of this program from scratch, including [creating the Standard C++ Modules file](https://learn.microsoft.com/en-us/cpp/cpp/tutorial-import-stl-named-module?view=msvc-170). Only MSVC (under Windows) and Clang (MacOS or Linux) fully support `import std;` at the present time.
+In this course we will use the codes in [headers folder](https://github.com/fum-cs/modern-cpp/code/headers/).
 
-![Output from compiling and running the program under Windows 10](https://learnmoderncpp.files.wordpress.com/2024/01/compile-module.png) -->
 
 Successful compilation produces an *executable binary* called `01-hellow.exe` (under Windows) or `01-hellow` (MacOS or Linux). This can be run by typing `01-hellow.exe` (or just `01-hellow`) into a Windows console (see graphic above), or by typing `./01-hellow` into a MacOS or Linux Terminal (both assuming that the executable is located in the current directory). Running the program by double-clicking it in an Explorer or File Manager window is not recommended, as any output may be lost as the program exits, so your program may not actually appear to do anything!
 

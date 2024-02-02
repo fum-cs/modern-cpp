@@ -22,8 +22,6 @@ Convention dictates that a first program should output the programmer's cry of "
 ```cpp
 // 01-hellow.cpp : prints a line of text to the console
 
-// 01-hellow.cpp : prints a line of text to the console
-
 #include <iostream>
 using namespace std;
 
@@ -37,7 +35,13 @@ If you prefer not to cut-and-paste, this source file is included in the zip arch
 
 * The first line is a comment; syntax of comments are discussed in more detail later in this Chapter. I've chosen to repeat the filename of the source code file in the comment, and also to summarize the purpose of the program. This summary is intended to be useful to anybody who later reads the code, possibly including the original author!
 
-* Then comes some *boilerplate* code, that is common code that we'll see again in future programs we write. The *include directive* is a command interpreted by the *pre-processor* which pastes the entire contents of the relevant *header file* (and any other files it `#include`s) at that point into the *compilation unit*. These directives are being phased out of Modern C++ in favor of the `import` keyword (which has the potential to speed up compilation times significantly), but it is likely the transition will take years to complete. Both Clang/LLVM and MSVC implement `import` although extra command-line switches are needed currently.
+* Then comes some *boilerplate* code, that is common code that we'll see again in future programs we write. The *include directive* is a command interpreted by the *pre-processor* which pastes the entire contents of the relevant *header file* (and any other files it `#include`s) at that point into the *compilation unit*. 
+
+```
+Only in C++23:
+
+These directives are being phased out of Modern C++ in favor of the `import` keyword (which has the potential to speed up compilation times significantly), but it is likely the transition will take years to complete. Both Clang/LLVM and MSVC implement `import` although extra command-line switches are needed currently.
+```
 
 * The next line `using namespace std;` is another directive which makes available all of the elements of the Standard Namespace (abbreviated as `std`) available to the global scope (that is, the scope in which the directive appears). Many experienced programmers would consider this *namespace pollution* bad form, preferring instead to use the *fully qualified names* of the individual components, however I have chosen to use it in all of the the example programs we will see in this Tutorial. The name "Standard" comes from the definition of the C++ Library's classes, functions and other facilities as defined by the ISO Standardization Committee. Programs can use any part of the Standard Library and be expected to compile on any compiler/platform combination without modification.
 
@@ -84,7 +88,7 @@ Some characters cannot be easily entered into string or character literals withi
 |     \\uhhhh     | Unicode sequence (0-ffff) * |
 |   \\Uhhhhhhhh   | Unicode sequence (0-10ffff) * |
 
-&#42; Note: not all Unicode sequences are allowed in 8-bit string or character literals, however these escape sequences are more useful with *Unicode string literals*, explained later in this Chapter.
+* Note: not all Unicode sequences are allowed in 8-bit string or character literals, however these escape sequences are more useful with *Unicode string literals*, explained later in this Chapter.
 
 Any escape sequence can be used within single quotes to represent exactly one character literal (including zero `'\0'`). Zero has a special meaning, as it is the string literal termination character. C++ inherits its string literals from C, and C-strings (as they are sometimes known, and as referred to in this Tutorial) were a bit of an afterthought to the C language of the 1970s. String literals can be thought of as a **read-only** array of characters with an automatically added zero terminator; the space needed to store the string literal `"Hello"` is six bytes, and not five as might be assumed.
 
