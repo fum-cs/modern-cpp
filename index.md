@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 
-Welcome to the advanced programming course which is devoted to Modern C++, where you will learn the main features and best practices of C++11, C++14, C++17, and C++20. This course is designed for programmers who are already familiar with traditional C++ or another high level programming language and want to update their skills with the latest standards. You will learn how to write simpler, safer, more elegant, and more efficient code with modern C++. You will also learn how to use the C++ Standard Library and its containers, algorithms, smart pointers, strings, and more. By the end of this course, you will be able to create various kinds of applications with modern C++, such as games, device drivers, cloud, desktop, embedded, and mobile apps, and more.
+Welcome to the advanced programming course which is devoted to Modern C++, where you will learn the main features and best practices of C++11, C++14, C++17, and C++20. This course is designed for programmers who are already familiar with traditional C++ or another high level programming language and want to update their skills with the latest standards. You will learn how to write simpler, safer, more elegant, and more efficient code with modern C++. You will also learn how to use the C++ Standard Library and its containers, algorithms, smart pointers, strings, and more.
 
 This course consists of several chapters, each covering a specific topic or feature of modern C++. Each chapter contains a lot of code examples and exercises to help you understand and practice the concepts. You can find the source code on the [GitHub repository](https://github.com/fum-cs/modern-cpp/) of this course. I hope you enjoy this course and learn a lot from it. 
 

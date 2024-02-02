@@ -71,4 +71,4 @@ Successful compilation produces an *executable binary* called `01-hellow.exe` (u
 
 *All text and program code &copy;2024-2025 Mahmood Amintoosi, all rights reserved.*
 
-The main repository is forked from Richard Spencer's github: https://github.com/cpp-tutor/learnmoderncpp-tutorial
+This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

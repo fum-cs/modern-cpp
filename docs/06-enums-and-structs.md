@@ -518,3 +518,5 @@ A few things to note about this program:
 * Add a `static` function to calculate the diagonal distance between two `Point`s and return it as a `double`. Consider how to implement `operator/` to calculate this value, and whether this would be a suitable use of OO.
 
 *All text and program code &copy;2024-2025 Mahmood Amintoosi, all rights reserved.*
+
+This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

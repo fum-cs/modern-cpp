@@ -645,3 +645,5 @@ A lot of things to note about this program:
 [^1]: Grady Booch, Robert A. Maksimchuk, Michael W. Engle, Bobbi J. Young, Jim Conallen, Kelli A. Houston *Object-Oriented Analysis and Design with Applications* (3rd ed. Pearson, 2007, ISBN-13: 9780201895513)
 
 *All text and program code &copy;2024-2025 Mahmood Amintoosi, all rights reserved.*
+
+This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

@@ -725,3 +725,5 @@ A brief Tutorial such as this is not the place to delve into these, and indeed t
 [^2]: http://cppstdlib.com
 
 *All text and program code &copy;2024-2025 Mahmood Amintoosi, all rights reserved.*
+
+This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.
