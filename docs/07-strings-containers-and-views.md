@@ -724,6 +724,6 @@ A brief Tutorial such as this is not the place to delve into these, and indeed t
 [^1]: https://en.cppreference.com
 [^2]: http://cppstdlib.com
 
-* * *
+---
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

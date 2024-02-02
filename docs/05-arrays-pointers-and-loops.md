@@ -539,6 +539,6 @@ The following table lists all eight members of the `begin()`/`end()` family, whe
 
 * Now modify the program so that only the last element of the array is printed out, whatever size the array is.
 
-* * *
+---
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.
