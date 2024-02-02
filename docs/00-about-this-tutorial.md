@@ -69,6 +69,6 @@ Successful compilation produces an *executable binary* called `01-hellow.exe` (u
 [^6]: https://nuwen.net/mingw.html
 [^7]: https://godbolt.org
 
-
+* * *
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

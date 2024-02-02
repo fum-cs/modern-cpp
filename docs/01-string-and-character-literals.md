@@ -207,6 +207,6 @@ Learning when and how to comment code comes with experience; typically you shoul
 [^3]: http://site.icu-project.org/home
 [^4]: https://www.doxygen.nl/manual/docblocks.html
 
-*All text and program code &copy;2019-2024 Mahmood Amintoosi, all rights reserved.*
+* * *
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.

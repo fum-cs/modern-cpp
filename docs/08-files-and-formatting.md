@@ -623,6 +623,6 @@ int main() {
 
 * Modify this program to read `Pixel`s.
 
-
+* * *
 
 This course is largely based on the material from [Richard Spencer's repository](https://github.com/cpp-tutor/learnmoderncpp-tutorial), where he shares his knowledge and passion for modern C++ programming.
