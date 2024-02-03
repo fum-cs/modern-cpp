@@ -37,7 +37,7 @@ Most people "learn by doing" (kinesthetic learning), and for decades it has been
 
 The best-known C++ compilers are Microsoft Visual Studio C++[^3] (MSVC, cl), the FSF GNU Compiler Collection[^4] (GCC, g++) and Apple's Clang/LLVM[^5] (clang++). All of these aggressively follow the progress of the ISO Standard and are under (ongoing) heavy development. If you are programming under Windows, you may want to seriously consider Microsoft's Visual Studio, which comes with an IDE and C++ compiler (the latter as an optional component, this needs to be selected in the installer) and has cost-free variants for students and individuals; it is also possible to use Clang (via the installer) as a drop-in replacement within Visual Studio (clang-cl). If you're a Mac user, you'll probably want to install Xcode, which includes Clang/LLVM. Linux users probably have both GCC and Clang packaged for their distribution, and Clang's libc++ may be available too. Also, Stephan T. Lavavej (primary architect of MSVC) makes MinGW (g++ for Windows) available from his [personal website](https://nuwen.net/mingw.html)[^6]. (Note: this does not require Visual Studio to be installed, but can coexist on the same machine.)
 
-Any of these compiler/OS combinations are suitable for new C++ coders, with Clang giving possibly the most user-friendly error messages, which could be an important factor. In fact, to start learning C++, you don't even need to install a compiler on your system if you can't, or don't want to; head to the [Compiler Explorer](https://godbolt.org)[^7] which provides just about every available C++ compiler (and versions including trunk and experimental development), and can even execute your program code (although interactive programs are not supported).
+Any of these compiler/OS combinations are suitable for new C++ coders, with Clang giving possibly the most user-friendly error messages, which could be an important factor. In fact, to start learning C++, you don't even need to install a compiler on your system if you can't, or don't want to; head to the [wandbox.org](https://wandbox.org/) or [Compiler Explorer](https://godbolt.org)[^7] which provides just about every available C++ compiler (and versions including trunk and experimental development), and can even execute your program code (although interactive programs are not supported).
 
 Learning any (programming) language is hard, and of course you will make many errors when starting out. Don't forget, the error messages your compiler gives you are designed to help you write correct code. In a coding/debugging session it can often feel as if you are "fighting the compiler", which can at times be frustrating. Try to think of it this way: if coding is musicianship, the compiler is your instrument. Treat it carefully, learn its nuances, and listen to it with the experience that comes from practice.
 
@@ -54,7 +54,7 @@ The simple programs we will introduce and create will consist of just one source
 ---
 **C++23 NOTE:**
 
-Different options are used with the different compilers, when using `import` (modules) instead of `#include` (headers).
+> Different options are used with the different compilers, when using `import` (modules) instead of `#include` (headers).
 
 ---
 
