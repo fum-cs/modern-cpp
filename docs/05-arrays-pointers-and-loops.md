@@ -2,6 +2,7 @@
 layout: default
 title: Arrays, Pointers and Loops
 nav_order: 7
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # Arrays, Pointers and Loops

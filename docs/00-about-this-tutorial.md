@@ -2,6 +2,7 @@
 layout: default
 title: About this Tutorial
 nav_order: 2
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # About this Tutorial

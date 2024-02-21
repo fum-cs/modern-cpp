@@ -2,6 +2,7 @@
 layout: default
 title: Variables, Scopes and Namespaces
 nav_order: 4
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # Variables, Scopes and Namespaces

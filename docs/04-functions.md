@@ -2,6 +2,7 @@
 layout: default
 title: Functions
 nav_order: 6
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # Functions

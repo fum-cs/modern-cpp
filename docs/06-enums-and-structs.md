@@ -2,6 +2,7 @@
 layout: default
 title: Enums and Structs
 nav_order: 8
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # Enums and Structs

@@ -2,6 +2,7 @@
 layout: default
 title: Strings, Containers and Views
 nav_order: 9
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # Strings, Containers and Views

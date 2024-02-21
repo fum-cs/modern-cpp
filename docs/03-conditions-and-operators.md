@@ -2,6 +2,7 @@
 layout: default
 title: Conditions and Operators
 nav_order: 5
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # Conditions and Operators

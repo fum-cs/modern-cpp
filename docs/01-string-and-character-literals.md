@@ -2,6 +2,7 @@
 layout: default
 title: String and Character Literals
 nav_order: 3
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # String and Character Literals

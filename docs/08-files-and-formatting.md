@@ -2,6 +2,7 @@
 layout: default
 title: Files and Formatting
 nav_order: 10
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
 # Files and Formatting
