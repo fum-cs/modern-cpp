@@ -59,7 +59,8 @@ The simple programs we will introduce and create will consist of just one source
 
 ---
 
-In this course we will use the codes in [headers folder](https://github.com/fum-cs/modern-cpp/tree/main/code/headers/).
+In this course we will use the codes in [headers-cout folder](https://github.com/fum-cs/modern-cpp/tree/main/code/headers-cout/) or [headers-format folder](https://github.com/fum-cs/modern-cpp/tree/main/code/headers-format/).
+
 
 Successful compilation produces an *executable binary* called `01-hellow.exe` (under Windows) or `01-hellow` (MacOS or Linux). This can be run by typing `01-hellow.exe` (or just `01-hellow`) into a Windows console (see graphic above), or by typing `./01-hellow` into a MacOS or Linux Terminal (both assuming that the executable is located in the current directory). Running the program by double-clicking it in an Explorer or File Manager window is not recommended, as any output may be lost as the program exits, so your program may not actually appear to do anything!
 
