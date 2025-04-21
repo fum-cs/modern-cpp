@@ -19,82 +19,204 @@ tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپ
 
 ## Enumerations
 
-Some variables belong to a small, defined set; that is they can have exactly one of a list of values. The `enum` type and its closely related `enum class` type each define a set of (integer) values which a variable is permitted to have.
-
-Think of a complete pack of playing cards: each card has a suit and rank. Considering the rank first of all, this is how it can be represented and defined:
+Some variables belong to a small, defined set; that is, they can have exactly one of a list of values. The `enum` type defines a set of (integer) values which a variable is permitted to have. For example, consider the days of the week:
 
 ```cpp
-enum Rank : unsigned short { ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king, none = 99 };
+enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
 ```
 
-The name of this type is `Rank`, by convention for a user-defined type this is in *SentenceCase*. Following the colon `:` is the *underlying type*; this **must** be a built-in integer type (`char` is also allowed) and defaults to `int` if not specified. Since we have specified `unsigned short` we can assign values from `0` to `65535` (most likely, however strictly speaking this is implementation dependent). Then, within curly braces are a list of comma-separated *enumerators*, each of which can optionally have values specified. We have set `ace = 1` instead of relying on the default value of zero for the first enumerator because it allows the internal value and representation to be the same. Subsequent enumerators take the next available value.
+The name of this type is `Day`, and the enumerators `Sunday`, `Monday`, etc., are assigned integer values starting from `0` by default. This means `Sunday` is `0`, `Monday` is `1`, and so on. You can also explicitly assign values to some or all of the enumerators if needed.
 
-A variable of type `enum` (also known as *plain* enum), such as `Rank` above, can be initialized from any of the enumerators listed in its definition. However, care should be taken not to assign values not in its enumeration set; this includes default-initialization if zero is not one of the enumerators:
+### Example Program: Using `enum`
+
+The following program demonstrates how to use the `enum` type:
 
 ```cpp
-Rank r1{ ace };     // ok, r1 is value of enumeration constant ace (1)
-Rank r2{};          // possible problem, r2 has value zero which is not in enumeration set
-Rank r3;            // worse, r3 has "random" (uninitialized) value
-Rank r4{ 15 };      // possible problem, r4 has a value not within enumeration set
-auto r5 = king;     // ok, r5 is of type Rank (not unsigned short)
-int i = seven;      // ok, implicit conversion to integral type
+#include <iostream>
+#include <string>
+
+enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+
+std::string get_day_name(Day day) {
+    switch (day) {
+        case Sunday: return "Sunday";
+        case Monday: return "Monday";
+        case Tuesday: return "Tuesday";
+        case Wednesday: return "Wednesday";
+        case Thursday: return "Thursday";
+        case Friday: return "Friday";
+        case Saturday: return "Saturday";
+        default: return "Invalid day";
+    }
+}
+
+int main() {
+    Day today = Monday;
+    std::cout << "Today is " << get_day_name(today) << ".\n";
+
+    Day tomorrow = static_cast<Day>(today + 1);
+    std::cout << "Tomorrow will be " << get_day_name(tomorrow) << ".\n";
+
+    return 0;
+}
 ```
 
-It may be surprising to discover that in most ways `ace`, `two`, `three`, `four` and so on are just "normal" integer constant values. (Indeed in some historical versions of the C language, the only way to define constants was by using anonymous `enum`s; this curiosity was given the affectionate name of the "enum hack".) Thus variables of type `enum` can "borrow" enumerators from different types of `enum`s! Even worse, enumerators from different `enum` definitions in the same scope could **not** use the same name without causing a name collision.
+### Output
 
-To address these limitations the C++ `enum class` type was created; this type is also known as *scoped* or *strongly typed* enumeration. We can represent the suit of a card using this type:
+```
+Today is Monday.
+Tomorrow will be Tuesday.
+```
+
+### Limitations of `enum`
+
+While `enum` is simple and easy to use, it has several limitations:
+
+1. **Global Scope of Enumerators**: The enumerators (`Sunday`, `Monday`, etc.) are placed in the global scope, which can lead to name collisions if multiple `enum`s have the same enumerator names.
+2. **Implicit Conversion to Integer**: Enumerators can be implicitly converted to integers, which can lead to unintended behavior. For example:
+   ```cpp
+   int day_value = Monday; // Implicitly converts to 1
+   ```
+3. **No Type Safety**: Variables of different `enum` types can be assigned to each other without any compiler error.
+
+To address these limitations, C++ introduced `enum class`.
+
+---
+
+## Scoped Enumerations (`enum class`)
+
+The `enum class` type, also known as *scoped* or *strongly typed* enumeration, resolves the issues of plain `enum`. For example, the days of the week can be represented as follows:
 
 ```cpp
-enum class Suit : char { spades = 'S', clubs = 'C', hearts = 'H', diamonds = 'D', none = '\?' };
+enum class DayOfWeek : int { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
 ```
 
-The difference in syntax is small, we have `enum class Suit` compared to `enum Rank`, although this time the underlying type is `char` and character literals are used for the enumerators. However the `none` in `Suit` does not clash with `none` in `Rank`, and related to this feature the enumerators in an `enum class` have to be qualified with the type name, as follows:
+The key differences are:
+
+1. **Scoped Enumerators**: The enumerators (`Sunday`, `Monday`, etc.) are scoped to the `enum class` type. This means you must qualify them with the type name, e.g., `DayOfWeek::Sunday`.
+2. **No Implicit Conversion**: Enumerators cannot be implicitly converted to integers. Explicit casting is required.
+3. **Type Safety**: Variables of different `enum class` types cannot be assigned to each other.
+
+### Example Program: Using `enum class`
+
+The following program demonstrates how to use the `enum class` type:
 
 ```cpp
-Suit s1 = Suit::hearts;     // good, types match
-Suit s2{};                  // possible problem, s2 has value zero (NUL-byte)
-Suit s3{ 'S' };             // ok, perhaps surprisingly
-auto s4 = Suit::diamonds;   // s4 is of type Suit
-char c = Suit::none;        // error: no implicit conversion to underlying type, static_cast needed
+#include <iostream>
+#include <string>
+
+enum class DayOfWeek : int { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+
+std::string get_day_name(DayOfWeek day) {
+    switch (day) {
+        case DayOfWeek::Sunday: return "Sunday";
+        case DayOfWeek::Monday: return "Monday";
+        case DayOfWeek::Tuesday: return "Tuesday";
+        case DayOfWeek::Wednesday: return "Wednesday";
+        case DayOfWeek::Thursday: return "Thursday";
+        case DayOfWeek::Friday: return "Friday";
+        case DayOfWeek::Saturday: return "Saturday";
+        default: return "Invalid day";
+    }
+}
+
+int main() {
+    DayOfWeek today = DayOfWeek::Monday;
+    std::cout << "Today is " << get_day_name(today) << ".\n";
+
+    DayOfWeek tomorrow = static_cast<DayOfWeek>(static_cast<int>(today) + 1);
+    std::cout << "Tomorrow will be " << get_day_name(tomorrow) << ".\n";
+
+    return 0;
+}
 ```
 
-**Experiment:**
+### Output
 
-* Write a program to populate a 13-element array of `Rank` with element `[0]` taking `ace`. Cause it to print this array in reverse order.
-
-* Write a function which outputs one of `Spades`, `Clubs`, `Hearts` or `Diamonds` based on its single parameter of type `Suit`.
+```
+Today is Monday.
+Tomorrow will be Tuesday.
+```
 
 ## Member variables
 
-Of course, in the context of a pack of playing cards it is not practical to think of "suit" and "rank" as separate entities: each playing card has both. The term *composite types* is used to describe objects composed from other types (either built-in or user-defined). The following `struct` definition is an example of a composite type, containing two fields (also called *member variables*) using the `enum` and `enum class` types already introduced:
+In many cases, it is practical to group related data into a single entity. For example, consider a schedule where each entry has a day of the week and a description. This can be represented using a `struct` that combines an `enum` for the day and a `std::string` for the description.
+
+The following `struct` definition demonstrates how to create a composite type, containing two fields (also called *member variables*):
 
 ```cpp
-struct PlayingCard {
-    Rank r;
-    Suit s;
+#include <string>
+
+enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+
+struct ScheduleEntry {
+    Day day;
+    std::string description;
 };
 ```
 
-This `struct` type is named `PlayingCard`, again using sentence case. The fields of the `struct` are listed between braces like variable definitions, type-then-name, separated by semi-colons; there is also a **mandatory** semi-colon after the closing brace. The order of the fields is not usually significant; we have put `Rank` first as it is a 16-bit value compared to `Suit` being 8-bit, which makes the `struct`'s logical memory layout more sensible. (There is probably no gap between the fields in memory layout in this case, but `PlayingCard` is probably padded out to 32-bits at the end.) Also, this layout matches the usual order of the description of a card, such as "Three of Clubs".
+This `struct` type is named `ScheduleEntry`. The fields of the `struct` are listed between braces, with their types (`Day` and `std::string`) followed by their names (`day` and `description`), separated by semicolons. There is also a **mandatory** semicolon after the closing brace.
 
-Instances (variables) of type `PlayingCard` are examples of what are often called *objects* (as in *Object Oriented Progamming*, or *OOP*), and they can be defined and initialized in a similar way to containers using uniform initialization syntax. The code below demonstrates how to create the first card in the pack, and how to extract the object's fields back into separate variables:
+### Example Program: Using `struct`
+
+The following program demonstrates how to create and use a `ScheduleEntry` object:
 
 ```cpp
-PlayingCard ace_of_spades{ ace, Suit::spades };
+#include <iostream>
+#include <string>
 
-auto the_rank1 = ace_of_spades.r;               // the_rank1 = ace, and is of type Rank
-auto the_suit1 = ace_of_spades.s;               // the_suit1 = Suit::spades, and is of type Suit
+enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
 
-auto [ the_rank2, the_suit2 ] = ace_of_spades;  // the_rank2 = ace, the_suit2 = Suit::spades
+struct ScheduleEntry {
+    Day day;
+    std::string description;
+};
+
+std::string get_day_name(Day day) {
+    switch (day) {
+        case Sunday: return "Sunday";
+        case Monday: return "Monday";
+        case Tuesday: return "Tuesday";
+        case Wednesday: return "Wednesday";
+        case Thursday: return "Thursday";
+        case Friday: return "Friday";
+        case Saturday: return "Saturday";
+        default: return "Invalid day";
+    }
+}
+
+int main() {
+    ScheduleEntry meeting{ Wednesday, "Team meeting at 10 AM" };
+
+    std::cout << "Schedule Entry:\n";
+    std::cout << "Day: " << get_day_name(meeting.day) << "\n";
+    std::cout << "Description: " << meeting.description << "\n";
+
+    return 0;
+}
 ```
 
-The variables `the_rank1` and `the_suit1` are initialized from the individual fields of `ace_of_spades` separately using *dot-notation*, while `the_rank2` and `the_suit2` are initialized using *aggregate initialization* syntax.
+### Output
 
-**Experiment:**
+```
+Schedule Entry:
+Day: Wednesday
+Description: Team meeting at 10 AM
+```
 
-* Put the definitions of `Rank`, `Suit` and `PlayingCard` into the same source file, together with a `main()` program which defines `ace_of_spades` as shown above. Does the order of the `enum` and `struct` definitions matter?
+### Explanation
 
-* What error message do you get if you swap `ace` and `Suit::spades` over in the definition of `ace_of_spades`. Would this error be easy to catch if plain `int` values were used instead of typed enumerators?
+1. **Defining a `struct`**: The `ScheduleEntry` struct groups a `Day` and a `std::string` into a single entity.
+2. **Creating an Instance**: The `meeting` variable is initialized using uniform initialization syntax (`{}`).
+3. **Accessing Fields**: The fields of the `struct` are accessed using dot-notation (`meeting.day` and `meeting.description`).
+
+### Exercises
+
+1. Modify the program to allow the user to input a day and a description, then display the schedule entry.
+2. Add a function to check if a given `ScheduleEntry` falls on a weekend (Saturday or Sunday).
+3. Extend the `ScheduleEntry` struct to include a time field (e.g., `std::string time`) and update the program accordingly.
+
+## Advanced Structs and Operator Overloading in C++
 
 It may be desirable to create `struct`s with multiple fields of the same type. An example of this is a simple two-dimensional `Point` class with fields called `x` and `y`, both being signed integers:
 
