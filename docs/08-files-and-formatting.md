@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Files and Formatting
+nav_exclude: true
 nav_order: 11
 tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
