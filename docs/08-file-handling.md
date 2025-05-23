@@ -20,16 +20,14 @@ tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپ
 
 This tutorial covers the basics of file handling in C++. We'll explore how to read from and write to files using various techniques.
 
-## 1. Introduction to File Streams
+## Introduction to File Streams
 
 C++ provides several classes for file handling through the `<fstream>` header:
 - `ofstream`: Output file stream for writing to files
 - `ifstream`: Input file stream for reading from files
 - `fstream`: File stream for both reading and writing
 
-## 2. Writing to Files
-
-### Basic File Writing
+## Writing and Reading to/from Files
 
 ```cpp
 // Program 01_basic_write.cpp
@@ -65,19 +63,6 @@ This program demonstrates:
 - Writing text to a file using the insertion operator (`<<`)
 - Automatic file closing when the stream goes out of scope
 
-### Writing Numbers to Files
-
-```cpp
-// Program 03_numbers_write.cpp
-```
-
-This program shows how to:
-- Write formatted numerical data to a file
-- Use loops to generate and write multiple values
-
-## 3. Reading from Files
-
-### Basic File Reading
 
 ```cpp
 // Program 02_basic_read.cpp
@@ -149,6 +134,10 @@ int main() {
     return 0;
 }
 ```
+This program shows how to:
+- Write formatted numerical data to a file
+- Use loops to generate and write multiple values
+
 
 ### Reading Numbers from Files
 
@@ -232,7 +221,7 @@ This program demonstrates:
 - Reading a file word by word instead of line by line
 - Counting words in a file
 
-## 4. Appending to Files
+## Appending to Files
 
 ```cpp
 // Program 06_append_to_file.cpp
@@ -264,7 +253,7 @@ This program shows how to:
 - Open a file in append mode using the `ios::app` flag
 - Add new content to the end of an existing file
 
-## 5. Binary File Operations
+## Binary File Operations
 
 Binary files store data in the same format as it's represented in memory, without any formatting or conversion.
 
@@ -285,10 +274,12 @@ struct Student {
 
 int main() {
     // Create sample student data
-    Student students[3] = {
-        {"Alice Smith", 20, 3.75},
-        {"Bob Johnson", 22, 3.45},
-        {"Carol Davis", 21, 3.91}
+    Student students[5] = {
+        {"Anne Shirley", 11, 3.98},  // Highly imaginative and intelligent
+        {"Diana Barry", 11, 3.65},   // Anne's kindred spirit and best friend
+        {"Gilbert Blythe", 12, 3.89}, // Anne's academic rival 
+        {"Ruby Gillis", 11, 3.20},    // One of Anne's schoolmates 
+        {"Josie Pye", 11, 3.10}       // Another schoolmate who often competes with Anne
     };
     
     // Open file in binary mode for writing
@@ -319,6 +310,7 @@ This program demonstrates:
 // Program 08_binary_read.cpp
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -329,25 +321,30 @@ struct Student {
 };
 
 int main() {
-    // Create sample student data
-    Student students[3] = {
-        {"Alice Smith", 20, 3.75},
-        {"Bob Johnson", 22, 3.45},
-        {"Carol Davis", 21, 3.91}
-    };
+    // Create an array to hold the read data
+    Student students[3];
     
-    // Open file in binary mode for writing
-    ofstream outFile("students.bin", ios::binary);
+    // Open file in binary mode for reading
+    ifstream inFile("students.bin", ios::binary);
     
-    if (!outFile) {
-        cerr << "Error: Could not open file for binary writing!" << endl;
+    if (!inFile) {
+        cerr << "Error: Could not open file for binary reading!" << endl;
         return 1;
     }
     
-    // Write the array of structures to the file
-    outFile.write(reinterpret_cast<char*>(students), sizeof(students));
+    // Read the array of structures from the file
+    inFile.read(reinterpret_cast<char*>(students), sizeof(students));
     
-    cout << "Binary data has been written to students.bin" << endl;
+    // Display the read data
+    cout << "Student Information:" << endl;
+    cout << "-------------------" << endl;
+    
+    for (const auto& student : students) {
+        cout << "Name: " << student.name << "\n"
+                  << "Age: " << student.age << "\n"
+                  << "GPA: " << std::fixed << std::setprecision(2) << student.gpa << "\n"
+                  << "-------------------\n";
+    }
     
     return 0;
 }
@@ -358,66 +355,7 @@ This program shows how to:
 - Use `read()` to read binary data from a file
 - Display the structured data
 
-## 6. File Positioning (Further Reading)
-
-```cpp
-// Program 09_file_position.cpp
-#include <iostream>
-#include <fstream>
-#include <string>
-
-using namespace std;
-
-int main() {
-    // Open file for both reading and writing
-    fstream file("position_demo.txt", ios::in | ios::out | ios::trunc);
-    
-    if (!file) {
-        cerr << "Error: Could not open file!" << endl;
-        return 1;
-    }
-    
-    // Write some data to the file
-    file << "Line 1: This is the first line." << endl;
-    file << "Line 2: This is the second line." << endl;
-    file << "Line 3: This is the third line." << endl;
-    
-    // Get current position
-    streampos currentPos = file.tellp();
-    cout << "Current position after writing: " << currentPos << endl;
-    
-    // Move to the beginning of the file for reading
-    file.seekg(0, ios::beg);
-    
-    // Read and display the file content
-    string line;
-    cout << "\nFile content:" << endl;
-    while (getline(file, line)) {
-        cout << line << endl;
-    }
-    
-    // Move to a specific position and modify content
-    file.seekp(0, ios::beg); // Move to the beginning
-    file << "MODIFIED: This replaces the first line.";
-    
-    // Move to the beginning again and read the modified content
-    file.seekg(0, ios::beg);
-    cout << "\nModified file content:" << endl;
-    while (getline(file, line)) {
-        cout << line << endl;
-    }
-    
-    return 0;
-}
-```
-
-This program demonstrates:
-- Opening a file for both reading and writing
-- Using `tellp()` and `tellg()` to get the current position
-- Using `seekp()` and `seekg()` to move to specific positions in the file
-- Modifying content at specific positions
-
-## 7. Error Handling
+## Error Handling
 
 ```cpp
 // Program 10_error_handling.cpp
@@ -434,7 +372,7 @@ int main() {
     // Check if file opened successfully
     if (!inFile) {
         cerr << "Error: Could not open nonexistent_file.txt" << endl;
-        cerr << "Error state: " << strerror(errno) << endl;
+        cerr << "Error state: " << strerror(errno) << endl << endl;
     }
     
     // Try to create a file in a directory that doesn't exist
@@ -442,7 +380,7 @@ int main() {
     
     if (!outFile) {
         cerr << "Error: Could not create file in nonexistent directory" << endl;
-        cerr << "Error state: " << strerror(errno) << endl;
+        cerr << "Error state: " << strerror(errno) << endl << endl;
     }
     
     // Try to open a file with proper error handling
@@ -457,7 +395,7 @@ int main() {
         // File operations would go here
         
     } catch (const exception& e) {
-        cerr << "Exception: " << e.what() << endl;
+        cerr << "Exception: " << e.what() << endl << endl;
     }
     
     cout << "Program continues despite file errors" << endl;
@@ -471,9 +409,9 @@ This program shows:
 - Error reporting using `cerr`
 - Using exceptions for more robust error handling
 
-## 8. Practical Example: Phone Directory
+## Practical Example: Phone Directory
 
-### Reading Anne_of_Green_Gables.txt
+### Reading a book
 
 ```cpp
 #include <iostream>

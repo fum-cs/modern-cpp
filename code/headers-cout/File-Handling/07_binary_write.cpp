@@ -11,10 +11,12 @@ struct Student {
 
 int main() {
     // Create sample student data
-    Student students[3] = {
-        {"Alice Smith", 20, 3.75},
-        {"Bob Johnson", 22, 3.45},
-        {"Carol Davis", 21, 3.91}
+    Student students[5] = {
+        {"Anne Shirley", 11, 3.98},  // Highly imaginative and intelligent
+        {"Diana Barry", 11, 3.65},   // Anne's kindred spirit and best friend
+        {"Gilbert Blythe", 12, 3.89}, // Anne's academic rival 
+        {"Ruby Gillis", 11, 3.20},    // One of Anne's schoolmates 
+        {"Josie Pye", 11, 3.10}       // Another schoolmate who often competes with Anne
     };
     
     // Open file in binary mode for writing
