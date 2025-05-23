@@ -1,4 +1,21 @@
+---
+layout: default
+title: C++ Object-Oriented Programming Tutorial
+nav_order: 12
+tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
+---
+
 # C++ Object-Oriented Programming Tutorial
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 
 This tutorial covers the fundamental concepts of Object-Oriented Programming in C++ using a consistent Shape class hierarchy throughout the examples.
 

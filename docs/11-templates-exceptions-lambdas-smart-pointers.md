@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Templates, Exceptions, Lambdas, Smart Pointers
-nav_order: 13
+nav_order: 14
 tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 

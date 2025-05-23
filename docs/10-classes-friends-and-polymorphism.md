@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Classes, Friends and Polymorphism
-nav_order: 12
+nav_order: 13
 tags: [Computer Science Dept., Ferdowsi University of Mashhad, علوم کامپیوتر دانشگاه فردوسی مشهد]
 ---
 
