@@ -52,13 +52,11 @@ using namespace std;
 class Shape {
    protected:
       int width, height;
-
    public:
       Shape(int a = 0, int b = 0) {
          width = a;
          height = b;
-      }
-      
+      }      
       void display() {
          cout << "Width: " << width << ", Height: " << height << endl;
       }
@@ -67,8 +65,7 @@ class Shape {
 // Derived class
 class Rectangle: public Shape {
    public:
-      Rectangle(int a = 0, int b = 0): Shape(a, b) { }
-      
+      Rectangle(int a = 0, int b = 0): Shape(a, b) { }      
       int area() {
          return (width * height);
       }
@@ -77,8 +74,7 @@ class Rectangle: public Shape {
 // Another derived class
 class Triangle: public Shape {
    public:
-      Triangle(int a = 0, int b = 0): Shape(a, b) { }
-      
+      Triangle(int a = 0, int b = 0): Shape(a, b) { }      
       int area() {
          return (width * height / 2);
       }
@@ -126,20 +122,16 @@ using namespace std;
 
 class Shape {
    private:
-      int id;
-   
+      int id;   
    protected:
-      int width, height;
-   
+      int width, height;   
    public:
       Shape(int a = 0, int b = 0, int i = 0) {
          width = a;
          height = b;
          id = i;
-      }
-      
-      int getId() { return id; }
-      
+      }      
+      int getId() { return id; }      
       void display() {
          cout << "ID: " << id << ", Width: " << width << ", Height: " << height << endl;
       }
@@ -148,15 +140,12 @@ class Shape {
 // Public inheritance
 class Rectangle: public Shape {
    public:
-      Rectangle(int a = 0, int b = 0, int i = 0): Shape(a, b, i) { }
-      
+      Rectangle(int a = 0, int b = 0, int i = 0): Shape(a, b, i) { }      
       void accessDemo() {
          // Can access protected members
-         cout << "Protected members width: " << width << ", height: " << height << endl;
-         
+         cout << "Protected members width: " << width << ", height: " << height << endl;         
          // Cannot access private members directly
-         // cout << "Private member id: " << id << endl; // This would cause error
-         
+         // cout << "Private member id: " << id << endl; // This would cause error         
          // Can access public members
          cout << "Public method getId(): " << getId() << endl;
       }
@@ -165,16 +154,13 @@ class Rectangle: public Shape {
 // Protected inheritance
 class Circle: protected Shape {
    public:
-      Circle(int r = 0, int i = 0): Shape(r, r, i) { }
-      
+      Circle(int r = 0, int i = 0): Shape(r, r, i) { }      
       void accessDemo() {
          // Can access protected members
-         cout << "Protected members width: " << width << ", height: " << height << endl;
-         
+         cout << "Protected members width: " << width << ", height: " << height << endl;         
          // Can access public members (now protected in Circle)
          cout << "Protected method getId(): " << getId() << endl;
-      }
-      
+      }      
       // Need to provide public methods to access inherited public methods
       void displayCircle() {
          display();
@@ -184,16 +170,13 @@ class Circle: protected Shape {
 // Private inheritance
 class Square: private Shape {
    public:
-      Square(int a = 0, int i = 0): Shape(a, a, i) { }
-      
+      Square(int a = 0, int i = 0): Shape(a, a, i) { }      
       void accessDemo() {
          // Can access protected members (now private in Square)
-         cout << "Private members width: " << width << ", height: " << height << endl;
-         
+         cout << "Private members width: " << width << ", height: " << height << endl;         
          // Can access public members (now private in Square)
          cout << "Private method getId(): " << getId() << endl;
-      }
-      
+      }      
       // Need to provide public methods to access inherited methods
       void displaySquare() {
          display();
@@ -230,6 +213,163 @@ int main() {
 - Public inheritance (preserves access levels)
 - Protected inheritance (public members become protected)
 - Private inheritance (public and protected members become private)
+
+
+Here's a concise English explanation you can add to your lesson page to accompany the new program:
+
+---
+
+### Understanding Protected vs Private Inheritance
+
+The following enhanced example demonstrates the key differences between **protected** and **private** inheritance in C++ by extending our Shape class hierarchy.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Shape {
+   private:
+      int id;   
+   protected:
+      int width, height;   
+   public:
+      Shape(int a = 0, int b = 0, int i = 0) {
+         width = a;
+         height = b;
+         id = i;
+      }      
+      int getId() { return id; }      
+      void display() {
+         cout << "ID: " << id << ", Width: " << width << ", Height: " << height << endl;
+      }
+};
+
+// Public inheritance
+class Rectangle: public Shape {
+   public:
+      Rectangle(int a = 0, int b = 0, int i = 0): Shape(a, b, i) { }      
+      void accessDemo() {
+         // Can access protected members
+         cout << "Protected members width: " << width << ", height: " << height << endl;         
+         // Cannot access private members directly
+         // cout << "Private member id: " << id << endl; // This would cause error         
+         // Can access public members
+         cout << "Public method getId(): " << getId() << endl;
+      }
+};
+
+// Protected inheritance
+class Circle: protected Shape {
+   public:
+      Circle(int r = 0, int i = 0): Shape(r, r, i) { }      
+      void accessDemo() {
+         // Can access protected members
+         cout << "Protected members width: " << width << ", height: " << height << endl;         
+         // Can access public members (now protected in Circle)
+         cout << "Protected method getId(): " << getId() << endl;
+      }      
+      // Need to provide public methods to access inherited public methods
+      void displayCircle() {
+         display();
+      }
+};
+
+// Class derived from Circle to show protected inheritance effect
+class SpecialCircle: public Circle {
+   public:
+      SpecialCircle(int r = 0, int i = 0): Circle(r, i) {}
+      void showAccess() {
+         // Can access protected members from Shape (through Circle)
+         cout << "Width from SpecialCircle: " << width << endl;
+         // Can access protected methods from Shape (through Circle)
+         cout << "ID from SpecialCircle: " << getId() << endl;
+      }
+};
+
+// Private inheritance
+class Square: private Shape {
+   public:
+      Square(int a = 0, int i = 0): Shape(a, a, i) { }      
+      void accessDemo() {
+         // Can access protected members (now private in Square)
+         cout << "Private members width: " << width << ", height: " << height << endl;         
+         // Can access public members (now private in Square)
+         cout << "Private method getId(): " << getId() << endl;
+      }      
+      // Need to provide public methods to access inherited methods
+      void displaySquare() {
+         display();
+      }
+};
+
+// Class derived from Square to show private inheritance effect
+class SpecialSquare: public Square {
+   public:
+      SpecialSquare(int a = 0, int i = 0): Square(a, i) {}
+      void tryAccess() {
+         // Cannot access protected members from Shape (they're private in Square)
+         // cout << "Trying to access width: " << width << endl; // Error
+         // Cannot access public methods from Shape (they're private in Square)
+         // cout << "Trying to access getId(): " << getId() << endl; // Error
+         cout << "No access to Shape members in SpecialSquare!" << endl;
+      }
+};
+
+int main() {
+   Rectangle rect(5, 7, 1);
+   Circle circle(5, 2);
+   Square square(5, 3);
+   SpecialCircle sc(6, 4);
+   SpecialSquare ss(7, 5);
+   
+   cout << "Rectangle:" << endl;
+   rect.display();  // Public method from Shape is accessible
+   rect.accessDemo();
+   
+   cout << "\nCircle:" << endl;
+   // circle.display();  // Error: protected inheritance makes public methods protected
+   circle.displayCircle();  // Need to use wrapper method
+   circle.accessDemo();
+   
+   cout << "\nSpecialCircle:" << endl;
+   sc.showAccess();
+   sc.displayCircle();
+   
+   cout << "\nSquare:" << endl;
+   // square.display();  // Error: private inheritance makes public methods private
+   square.displaySquare();  // Need to use wrapper method
+   square.accessDemo();
+   
+   cout << "\nSpecialSquare:" << endl;
+   ss.tryAccess();
+   ss.displaySquare();
+   
+   return 0;
+}
+```
+
+#### Key Modifications:
+1. Added `SpecialCircle` (derived from `Circle`) to show protected inheritance effects
+2. Added `SpecialSquare` (derived from `Square`) to show private inheritance effects
+
+#### Critical Differences Shown:
+
+| Aspect                | Protected Inheritance (`Circle`)          | Private Inheritance (`Square`)           |
+|-----------------------|------------------------------------------|------------------------------------------|
+| Base class public members become | Protected in derived class       | Private in derived class                |
+| Access in further derived classes | Available (protected)            | Not available                           |
+| External access       | Requires wrapper methods          | Requires wrapper methods                |
+
+#### Key Observations:
+- With **protected inheritance**:
+  - `SpecialCircle` can access Shape's members through Circle
+  - Original public methods become protected (need wrapper methods like `displayCircle()`)
+
+- With **private inheritance**:
+  - `SpecialSquare` cannot access any Shape members
+  - All inheritance is effectively "hidden" from further derivation
+  - Requires more wrapper methods (like `displaySquare()`)
+
 
 ## 3. Polymorphism
 
