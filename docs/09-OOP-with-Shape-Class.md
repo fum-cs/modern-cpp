@@ -23,6 +23,24 @@ This tutorial covers the fundamental concepts of Object-Oriented Programming in 
 
 Inheritance is a mechanism where a new class (derived class) can inherit properties and behaviors from an existing class (base class). This allows for code reuse and establishing relationships between classes.
 
+When creating a class, instead of writing completely new data members and member functions, you can specify that the new class should *inherit* the members of an existing class. This existing class is called the *base class*, and the new class is called the *derived class*. Other programming languages, such as Java and C#, refer to the base class as the *superclass* and the derived class as the *subclass*. A derived class represents a more specialized group of objects. C++ offers public, protected and private inheritance. With public inheritance, every object of a derived class is also an object of that derived class’s base class. However, base-class objects are not objects of their derived classes. For example, if we have Vehicle as a base class and Car as a derived class, then all Cars are Vehicles, but not all Vehicles are Cars—for example, a Vehicle could also be a Truck or a Boat. 
+
+![](img/Fig11-1-CPP-How-ro-Program.png)
+
+Fig. 11.1 of [C++ How to Program](https://www.ebooksworld.ir/post/index/781), Global Edition, 10th Edition: Inheritance examples
+
+We distinguish between the *is-a* relationship and the *has-a* relationship. The *is-a* relationship represents inheritance. In an is-a relationship, an object of a derived class also can be treated as an object of its base class—for example, a Car is a Vehicle, so any attributes and behaviors of a Vehicle are also attributes and behaviors of a Car. By contrast, the hasa relationship represents composition, which was discussed in Chapter 9. In a has-a relationship, an object contains one or more objects of other classes as members. For example, a Car has many components—it has a steering wheel, has a brake pedal, has a transmission, etc.
+
+
+Inheritance relationships form class hierarchies. A base class exists in a hierarchical relationship with its derived classes. Although classes can exist independently, once they’re employed in inheritance relationships, they become affiliated with other classes. A class becomes either a base class—supplying members to other classes, a derived class—inheriting its members from other classes, or both.
+
+![](img/Fig11-2-CPP-How-ro-Program.png)
+
+Fig. 11.2 of [C++ How to Program](https://www.ebooksworld.ir/post/index/781), Global Edition, 10th Edition: Inheritance hierarchy for university CommunityMembers.
+
+
+### 1.1 Shape Class Example
+
 In this example, we create a base `Shape` class with protected width and height attributes, and two derived classes: `Rectangle` and `Triangle`. The derived classes inherit the attributes and methods from the base class.
 
 ```cpp
