@@ -221,7 +221,6 @@ Here's a concise English explanation you can add to your lesson page to accompan
 
 ### Understanding Protected vs Private Inheritance
 
-The following enhanced example demonstrates the key differences between **protected** and **private** inheritance in C++ by extending our Shape class hierarchy.
 
 ```cpp
 #include <iostream>
