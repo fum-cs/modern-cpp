@@ -374,6 +374,68 @@ int main() {
 
 Polymorphism allows objects of different classes to be treated as objects of a common base class. In C++, this is achieved through virtual functions, which enable runtime method binding.
 
+
+### Early binding and Late binding in C++
+
+[Early Binding](https://www.geeksforgeeks.org/early-binding-late-binding-c/) (compile-time time polymorphism) As the name indicates, compiler (or linker) directly associate an address to the function call. It replaces the call with a machine language instruction that tells the mainframe to leap to the address of the function. By default early binding happens in C++
+
+```cpp
+#include<iostream>
+using namespace std;
+  
+class Base
+{
+public:
+    void show() { cout<<" In Base \n"; }
+};
+  
+class Derived: public Base
+{
+public:
+    void show() { cout<<"In Derived \n"; }
+};
+  
+int main(void)
+{
+    Base *bp = new Derived;
+
+    // The function call decided at compile time (compiler sees type
+    // of pointer and calls base class function.
+    bp->show();  
+
+    return 0;
+}
+```
+
+Late Binding : (Run time polymorphism) In this, the compiler adds code that identifies the kind of object at runtime then matches the call with the right function definition (Refer this for details). This can be achieved by declaring a virtual function. (For `new` keyword see [here](https://www.geeksforgeeks.org/new-and-delete-operators-in-cpp-for-dynamic-memory/)).
+
+```cpp
+// CPP Program to illustrate late binding
+#include<iostream>
+using namespace std;
+  
+class Base
+{
+public:
+    virtual void show() { cout<<" In Base \n"; }
+};
+  
+class Derived: public Base
+{
+public:
+    void show() { cout<<"In Derived \n"; }
+};
+  
+int main(void)
+{
+    Base *bp = new Derived;
+    bp->show();  // RUN-TIME POLYMORPHISM
+    return 0;
+}
+```
+
+### Polymorphism with the Shpae class
+
 ```cpp
 // Program 03_polymorphism.cpp
 #include <iostream>
@@ -647,6 +709,8 @@ int main() {
 - Memory management with polymorphic objects
 - Importance of virtual destructors when using `delete` with base class pointers
 
+# Further Reading
+
 ## 6. Multiple Inheritance
 
 Multiple inheritance allows a class to inherit from more than one base class. This can be useful for combining behaviors from different sources but requires careful design to avoid ambiguities.
@@ -758,8 +822,6 @@ int main() {
 - Interface-like classes with pure virtual functions
 - Polymorphism with different base class types
 - Implementation of methods from multiple base classes
-
-# Further Reading
 
 ## 7. Virtual Base Classes
 
