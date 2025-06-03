@@ -238,10 +238,11 @@ Where:
   - A maximum iteration count is reached (point is inside the set)
 
 The color of each pixel typically represents how quickly the point escapes (if at all), creating the characteristic fractal patterns.
+Points that remain bounded (belong to the set) are often colored black, while points that diverge (outside the set) can be colored with different colors to indicate how quickly they diverge,
 
 #### Connection to Random Number Generation
 
-Interestingly, the chaotic behavior of the Mandelbrot iteration shares some conceptual similarities with pseudorandom number generators:
+Interestingly, the chaotic behavior of the Mandelbrot iteration shares some conceptual similarities with [pseudorandom number generators](https://en.wikipedia.org/wiki/Random_number_generation):
 
 1. Both use iterative processes (the Mandelbrot formula vs. PRNG algorithms)
 2. Small changes in initial conditions lead to dramatically different results
@@ -249,36 +250,6 @@ Interestingly, the chaotic behavior of the Mandelbrot iteration shares some conc
 4. Both can be used to create visual patterns (fractals vs. random noise textures)
 
 However, while PRNGs are designed for uniform distribution, the Mandelbrot set's "randomness" emerges from its mathematical properties.
-
-#### Example Implementation
-
-```cpp
-// For each pixel (x,y) in the image
-for (int x = 0; x < WIDTH; ++x) {
-    for (int y = 0; y < HEIGHT; ++y) {
-        // Map pixel coordinates to complex plane
-        float x0 = (x - WIDTH/2.0f)*4.0f/WIDTH;
-        float y0 = (y - HEIGHT/2.0f)*4.0f/HEIGHT;
-        
-        // Perform Mandelbrot iteration
-        float xx = 0, yy = 0;
-        int iteration = 0;
-        while (xx*xx + yy*yy <= 4 && iteration < MAX_ITERATIONS) {
-            float xtemp = xx*xx - yy*yy + x0;
-            yy = 2*xx*yy + y0;
-            xx = xtemp;
-            iteration++;
-        }
-        
-        // Color based on escape time
-        int color = (iteration == MAX_ITERATIONS) ? 0 : iteration % 256;
-        fprintf(file, "%d %d %d ", color, color, color);
-    }
-}
-```
-
-The complete implementation includes optimizations and color mapping techniques to enhance the visual result.
-
 
 ### 4.4 The Mandelbrot Set Program 
 
@@ -304,7 +275,7 @@ int calculateMandelbrotValue(int x, int y) {
         iterations++;
     }
     
-    return (iterations < MAX_ITERATIONS) ? (COLOR_DEPTH*iterations)/(MAX_ITERATIONS-1) : 0;
+    return (iterations < MAX_ITERATIONS) ? (COLOR_DEPTH*iterations)/(MAX_ITERATIONS) : 0;
 }
 
 int main() {
