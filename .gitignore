@@ -14,3 +14,8 @@ _site/
 .bundle/
 vendor/
 /code/headers-cout/output
+.ipynb_checkpoints/
+_sources/
+_build/
+*.pt
+*.pkl
